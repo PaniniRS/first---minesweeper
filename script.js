@@ -40,6 +40,13 @@ const appendTimerCount = document.getElementById("count-timer");
 const appendResetModal = document.querySelector(".modalResetGame");
 const appendBgBlur = document.querySelector(".bgBlur");
 const appendClose = document.querySelector(".close");
+const appendCloseWon = document.querySelector(".closeWon");
+const appendCloseLost = document.querySelector(".closeLost");
+const appendWonModal = document.querySelector(".modalWon");
+const appendLostModal = document.querySelector(".modalLost");
+const appendButtonEasy = document.getElementById("easy");
+const appendButtonMedium = document.getElementById("medium");
+const appendButtonHard = document.getElementById("hard");
 const appendButtonNewGame = document.getElementById("buttonNewGame");
 const appendButtonRestart = document.querySelector(".buttonRestart");
 const appendBombInput = document.getElementById("bombInput");
@@ -286,6 +293,12 @@ const openWonGameModal = () => {
   appendWonModal.focus();
 };
 
+const openLostGameModal = () => {
+  appendLostModal.classList.remove("hidden");
+  appendBgBlur.classList.remove("hidden");
+  appendLostModal.focus();
+};
+
 const closeResetModal = function () {
   appendResetModal.classList.add("hidden");
   appendBgBlur.classList.add("hidden");
@@ -320,6 +333,24 @@ document.addEventListener("keydown", (e) => {
 appendClose.addEventListener("click", closeResetModal);
 //Open modal with click on retry butotn
 document.querySelector(`.retry`).addEventListener(`click`, openResetGameModal);
+
+//Reset easy game
+document.querySelector(`.easy`).addEventListener(`click`, () => {
+  closeResetModal();
+  gameInit(2, 5);
+});
+
+//Reset medium game
+document.querySelector(`.medium`).addEventListener(`click`, () => {
+  closeResetModal();
+  gameInit(10, 10);
+});
+
+//Reset hard game
+document.querySelector(`.hard`).addEventListener(`click`, () => {
+  closeResetModal();
+  gameInit(20, 15);
+});
 
 //Set default values for the input
 appendBombInput.value = 2;
