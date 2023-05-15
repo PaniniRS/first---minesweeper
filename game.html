@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="resources/styles/game.css" />
     <link rel="stylesheet" href="resources/styles/gameElements.css" />
     <link rel="stylesheet" href="resources/styles/modalResetGame.css" />
+    <link rel="stylesheet" href="modalWon.css" />
 
     <link
       rel="shortcut icon"
@@ -20,7 +21,17 @@
     <title>Minesweeper</title>
   </head>
   <body>
-    <div class="bgBlur hidden"></div>
+    <div class="bgBlur"></div>
+    <div class="modalWon">
+      <div class="modalHeader wonHeader">
+        <h2 id="modalWonLabel">You Won! 🥳</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modalBody wonBody">
+        <div id="buttonHome">Home</div>
+        <div id="buttonRestart">Restart</div>
+      </div>
+    </div>
     <div class="modalResetGame hidden">
       <div class="modalHeader">
         <h2 id="modalRestartLabel">Restart</h2>

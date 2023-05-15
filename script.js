@@ -238,6 +238,7 @@ const setTileNumber = function (tile, xTile, yTile) {
 const gameWon = function () {
   openAllTiles();
   alert("You Win");
+
   clearInterval(interval);
   openResetGameModal();
 };
@@ -249,17 +250,11 @@ const gameOver = function () {
   openResetGameModal();
 };
 
-const openResetGameModal = () => {
-  appendResetModal.classList.remove("hidden");
-  appendBgBlur.classList.remove("hidden");
-  appendResetModal.focus();
-};
-
 const resetGame = function () {
   mineCount = parseInt(appendBombInput.value);
   size = parseInt(appendSizeInput.value);
   gameInit(mineCount, size);
-  closeModal();
+  closeResetModal();
 };
 
 const startTimer = function () {
@@ -279,8 +274,25 @@ const startTimer = function () {
   appendTimerCount.textContent = time;
 };
 
-const closeModal = function () {
+const openResetGameModal = () => {
+  appendResetModal.classList.remove("hidden");
+  appendBgBlur.classList.remove("hidden");
+  appendResetModal.focus();
+};
+
+const openWonGameModal = () => {
+  appendWonModal.classList.remove("hidden");
+  appendBgBlur.classList.remove("hidden");
+  appendWonModal.focus();
+};
+
+const closeResetModal = function () {
   appendResetModal.classList.add("hidden");
+  appendBgBlur.classList.add("hidden");
+};
+
+const closeWonModal = function () {
+  appendWonModal.classList.add("hidden");
   appendBgBlur.classList.add("hidden");
 };
 
@@ -299,11 +311,13 @@ document.addEventListener("keydown", (e) => {
   console.log(e.key);
 
   if (e.key === "R" || e.key === "r") openResetGameModal();
-  if (e.key === "Escape") closeModal();
+  if (e.key === "Escape") closeResetModal();
+
+  if (e.key === `Enter`) resetGame();
 });
 
 //Close modal with click on X
-appendClose.addEventListener("click", closeModal);
+appendClose.addEventListener("click", closeResetModal);
 //Open modal with click on retry butotn
 document.querySelector(`.retry`).addEventListener(`click`, openResetGameModal);
 
