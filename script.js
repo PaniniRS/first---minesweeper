@@ -257,6 +257,7 @@ const resetGame = function () {
   size = parseInt(appendSizeInput.value);
   gameInit(mineCount, size);
   closeResetModal();
+  appendGameContainer.classList.remove("hidden");
 };
 
 const startTimer = function () {
@@ -349,24 +350,31 @@ document.getElementById(`buttonRestartLost`).addEventListener(`click`, () => {
 document.querySelector(`.easy`).addEventListener(`click`, () => {
   closeResetModal();
   gameInit(2, 5);
+
+  appendGameContainer.classList.remove("hidden");
 });
 
 //Reset medium game
 document.querySelector(`.medium`).addEventListener(`click`, () => {
   closeResetModal();
   gameInit(10, 10);
+
+  appendGameContainer.classList.remove("hidden");
 });
 
 //Reset hard game
 document.querySelector(`.hard`).addEventListener(`click`, () => {
   closeResetModal();
   gameInit(20, 15);
+
+  appendGameContainer.classList.remove("hidden");
 });
 
 //Set default values for the input
 appendBombInput.value = 2;
 appendSizeInput.value = 5;
 
-resetGame();
-// appendGameContainer.classList.add("hidden");
-console.log(mineFieldMatrix);
+//Start the game
+//Select difficulty
+appendGameContainer.classList.add("hidden");
+openResetGameModal();
