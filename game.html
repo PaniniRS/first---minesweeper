@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="resources/styles/game.css" />
     <link rel="stylesheet" href="resources/styles/gameElements.css" />
     <link rel="stylesheet" href="resources/styles/modalResetGame.css" />
+    <link rel="stylesheet" href="resources/styles/modalWon.css" />
+    <link rel="stylesheet" href="resources/styles/modalLost.css" />
 
     <link
       rel="shortcut icon"
@@ -21,6 +23,44 @@
   </head>
   <body>
     <div class="bgBlur hidden"></div>
+    <!--  -->
+    <div class="modalWon hidden">
+      <div class="modalHeader wonHeader">
+        <h2 id="modalWonLabel">You Won! 🥳</h2>
+        <span class="closeWon">&times;</span>
+      </div>
+      <div class="modalBody wonBody">
+        <!-- <a href="start.html" class="aHome"> -->
+        <button
+          type="button"
+          onclick="window.location.href = `/start.html`"
+          id="buttonHomeWon"
+          name="home"
+        >
+          Home
+        </button>
+        <!-- </a> -->
+        <div id="buttonRestartWon">Restart</div>
+      </div>
+    </div>
+    <div class="modalLost hidden">
+      <div class="modalHeader lostHeader">
+        <h2 id="modalLostLabel">You Lost! 😔</h2>
+        <span class="closeLost">&times;</span>
+      </div>
+      <div class="modalBody lostBody">
+        <button
+          type="button"
+          onclick="window.location.href = `/start.html`"
+          id="buttonHomeLost"
+          name="home"
+        >
+          Home
+        </button>
+        <div id="buttonRestartLost">Restart</div>
+      </div>
+    </div>
+    <!--  -->
     <div class="modalResetGame hidden">
       <div class="modalHeader">
         <h2 id="modalRestartLabel">Restart</h2>
@@ -46,7 +86,7 @@
                 name="size"
                 id="sizeInput"
                 min="5"
-                max="30"
+                max="20"
               />
             </div>
             <div class="modalCustomBombs">
@@ -57,13 +97,14 @@
                 name="bombs"
                 id="bombInput"
                 min="2"
-                max="900"
+                max="400"
               />
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!--  -->
     <div class="container">
       <div class="containerMenu">
         <div class="display timer">

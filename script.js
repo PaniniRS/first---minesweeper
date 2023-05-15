@@ -40,8 +40,12 @@ const appendTimerCount = document.getElementById("count-timer");
 const appendResetModal = document.querySelector(".modalResetGame");
 const appendBgBlur = document.querySelector(".bgBlur");
 const appendClose = document.querySelector(".close");
-const appendButtonNewGame = document.getElementById("buttonNewGame");
+const appendCloseWon = document.querySelector(".closeWon");
+const appendCloseLost = document.querySelector(".closeLost");
+const appendWonModal = document.querySelector(".modalWon");
+const appendLostModal = document.querySelector(".modalLost");
 
+const appendButtonNewGame = document.getElementById("buttonNewGame");
 const appendBombInput = document.getElementById("bombInput");
 const appendSizeInput = document.getElementById("sizeInput");
 ///////////////////////////////////////
@@ -237,29 +241,23 @@ const setTileNumber = function (tile, xTile, yTile) {
 
 const gameWon = function () {
   openAllTiles();
-  alert("You Win");
   clearInterval(interval);
-  openResetGameModal();
+
+  openWonGameModal();
 };
 
 const gameOver = function () {
   openAllTiles();
-  alert("You Lose");
   clearInterval(interval);
-  openResetGameModal();
-};
-
-const openResetGameModal = () => {
-  appendResetModal.classList.remove("hidden");
-  appendBgBlur.classList.remove("hidden");
-  appendResetModal.focus();
+  openLostGameModal();
 };
 
 const resetGame = function () {
   mineCount = parseInt(appendBombInput.value);
   size = parseInt(appendSizeInput.value);
   gameInit(mineCount, size);
-  closeModal();
+  closeResetModal();
+  appendGameContainer.classList.remove("hidden");
 };
 
 const startTimer = function () {
@@ -279,8 +277,36 @@ const startTimer = function () {
   appendTimerCount.textContent = time;
 };
 
-const closeModal = function () {
+const openResetGameModal = () => {
+  appendResetModal.classList.remove("hidden");
+  appendBgBlur.classList.remove("hidden");
+  appendResetModal.focus();
+};
+
+const openWonGameModal = () => {
+  appendWonModal.classList.remove("hidden");
+  appendBgBlur.classList.remove("hidden");
+  appendWonModal.focus();
+};
+
+const openLostGameModal = () => {
+  appendLostModal.classList.remove("hidden");
+  appendBgBlur.classList.remove("hidden");
+  appendLostModal.focus();
+};
+
+const closeResetModal = function () {
   appendResetModal.classList.add("hidden");
+  appendBgBlur.classList.add("hidden");
+};
+
+const closeWonModal = function () {
+  appendWonModal.classList.add("hidden");
+  appendBgBlur.classList.add("hidden");
+};
+
+const closeLostModal = function () {
+  appendLostModal.classList.add("hidden");
   appendBgBlur.classList.add("hidden");
 };
 
@@ -299,18 +325,56 @@ document.addEventListener("keydown", (e) => {
   console.log(e.key);
 
   if (e.key === "R" || e.key === "r") openResetGameModal();
-  if (e.key === "Escape") closeModal();
+  if (e.key === "Escape") closeResetModal();
+
+  if (e.key === `Enter`) resetGame();
 });
 
 //Close modal with click on X
-appendClose.addEventListener("click", closeModal);
+appendClose.addEventListener("click", closeResetModal);
+appendCloseLost.addEventListener("click", closeLostModal);
+appendCloseWon.addEventListener("click", closeWonModal);
+
 //Open modal with click on retry butotn
 document.querySelector(`.retry`).addEventListener(`click`, openResetGameModal);
+document.getElementById(`buttonRestartWon`).addEventListener(`click`, () => {
+  closeWonModal();
+  openResetGameModal();
+});
+document.getElementById(`buttonRestartLost`).addEventListener(`click`, () => {
+  closeLostModal();
+  openResetGameModal();
+});
+
+//Reset easy game
+document.querySelector(`.easy`).addEventListener(`click`, () => {
+  closeResetModal();
+  gameInit(2, 5);
+
+  appendGameContainer.classList.remove("hidden");
+});
+
+//Reset medium game
+document.querySelector(`.medium`).addEventListener(`click`, () => {
+  closeResetModal();
+  gameInit(10, 10);
+
+  appendGameContainer.classList.remove("hidden");
+});
+
+//Reset hard game
+document.querySelector(`.hard`).addEventListener(`click`, () => {
+  closeResetModal();
+  gameInit(20, 15);
+
+  appendGameContainer.classList.remove("hidden");
+});
 
 //Set default values for the input
 appendBombInput.value = 2;
 appendSizeInput.value = 5;
 
-resetGame();
-// appendGameContainer.classList.add("hidden");
-console.log(mineFieldMatrix);
+//Start the game
+//Select difficulty
+appendGameContainer.classList.add("hidden");
+openResetGameModal();
