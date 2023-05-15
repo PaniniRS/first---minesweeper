@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="resources/styles/gameElements.css" />
     <link rel="stylesheet" href="resources/styles/modalResetGame.css" />
     <link rel="stylesheet" href="modalWon.css" />
+    <link rel="stylesheet" href="modalLost.css" />
 
     <link
       rel="shortcut icon"
@@ -21,17 +22,31 @@
     <title>Minesweeper</title>
   </head>
   <body>
-    <div class="bgBlur"></div>
-    <div class="modalWon">
+    <div class="bgBlur hidden"></div>
+    <!--  -->
+    <div class="modalWon hidden">
       <div class="modalHeader wonHeader">
         <h2 id="modalWonLabel">You Won! 🥳</h2>
         <span class="close">&times;</span>
       </div>
       <div class="modalBody wonBody">
-        <div id="buttonHome">Home</div>
-        <div id="buttonRestart">Restart</div>
+        <!-- <a href="start.html" class="aHome"> -->
+          <button type="button" onclick="window.location.href = `/start.html`" class="buttonHome name="home">Home</button>
+        <!-- </a> -->
+        <div class="buttonRestart">Restart</div>
       </div>
     </div>
+    <div class="modalLost hidden">
+      <div class="modalHeader lostHeader">
+        <h2 id="modalLostLabel">You Lost! 😔</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modalBody lostBody">
+        <button type="button" onclick="window.location.href = `/start.html`" class="buttonHome name="home">Home</button>
+        <div class="buttonRestart">Restart</div>
+      </div>
+    </div>
+    <!--  -->
     <div class="modalResetGame hidden">
       <div class="modalHeader">
         <h2 id="modalRestartLabel">Restart</h2>
@@ -75,6 +90,7 @@
         </div>
       </div>
     </div>
+    <!--  -->
     <div class="container">
       <div class="containerMenu">
         <div class="display timer">
