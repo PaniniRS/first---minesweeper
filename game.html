@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="resources/styles/game.css" />
     <link rel="stylesheet" href="resources/styles/gameElements.css" />
     <link rel="stylesheet" href="resources/styles/modalResetGame.css" />
-    <link rel="stylesheet" href="modalWon.css" />
-    <link rel="stylesheet" href="modalLost.css" />
+    <link rel="stylesheet" href="resources/styles/modalWon.css" />
+    <link rel="stylesheet" href="resources/styles/modalLost.css" />
 
     <link
       rel="shortcut icon"
@@ -27,7 +27,7 @@
     <div class="modalWon hidden">
       <div class="modalHeader wonHeader">
         <h2 id="modalWonLabel">You Won! 🥳</h2>
-        <span class="close">&times;</span>
+        <span class="closeWon">&times;</span>
       </div>
       <div class="modalBody wonBody">
         <!-- <a href="start.html" class="aHome"> -->
@@ -39,7 +39,7 @@
     <div class="modalLost hidden">
       <div class="modalHeader lostHeader">
         <h2 id="modalLostLabel">You Lost! 😔</h2>
-        <span class="close">&times;</span>
+        <span class="closeLost">&times;</span>
       </div>
       <div class="modalBody lostBody">
         <button type="button" onclick="window.location.href = `/start.html`" class="buttonHome name="home">Home</button>

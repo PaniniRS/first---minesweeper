@@ -41,7 +41,7 @@ const appendResetModal = document.querySelector(".modalResetGame");
 const appendBgBlur = document.querySelector(".bgBlur");
 const appendClose = document.querySelector(".close");
 const appendButtonNewGame = document.getElementById("buttonNewGame");
-
+const appendButtonRestart = document.querySelector(".buttonRestart");
 const appendBombInput = document.getElementById("bombInput");
 const appendSizeInput = document.getElementById("sizeInput");
 ///////////////////////////////////////
