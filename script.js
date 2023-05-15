@@ -44,11 +44,8 @@ const appendCloseWon = document.querySelector(".closeWon");
 const appendCloseLost = document.querySelector(".closeLost");
 const appendWonModal = document.querySelector(".modalWon");
 const appendLostModal = document.querySelector(".modalLost");
-const appendButtonEasy = document.getElementById("easy");
-const appendButtonMedium = document.getElementById("medium");
-const appendButtonHard = document.getElementById("hard");
+
 const appendButtonNewGame = document.getElementById("buttonNewGame");
-const appendButtonRestart = document.querySelector(".buttonRestart");
 const appendBombInput = document.getElementById("bombInput");
 const appendSizeInput = document.getElementById("sizeInput");
 ///////////////////////////////////////
@@ -244,17 +241,15 @@ const setTileNumber = function (tile, xTile, yTile) {
 
 const gameWon = function () {
   openAllTiles();
-  alert("You Win");
-
   clearInterval(interval);
-  openResetGameModal();
+
+  openWonGameModal();
 };
 
 const gameOver = function () {
   openAllTiles();
-  alert("You Lose");
   clearInterval(interval);
-  openResetGameModal();
+  openLostGameModal();
 };
 
 const resetGame = function () {
@@ -309,6 +304,11 @@ const closeWonModal = function () {
   appendBgBlur.classList.add("hidden");
 };
 
+const closeLostModal = function () {
+  appendLostModal.classList.add("hidden");
+  appendBgBlur.classList.add("hidden");
+};
+
 //#TODO: Stop timer once the game is over
 //    Record the time it took to complete the game
 
@@ -331,8 +331,19 @@ document.addEventListener("keydown", (e) => {
 
 //Close modal with click on X
 appendClose.addEventListener("click", closeResetModal);
+appendCloseLost.addEventListener("click", closeLostModal);
+appendCloseWon.addEventListener("click", closeWonModal);
+
 //Open modal with click on retry butotn
 document.querySelector(`.retry`).addEventListener(`click`, openResetGameModal);
+document.getElementById(`buttonRestartWon`).addEventListener(`click`, () => {
+  closeWonModal();
+  openResetGameModal();
+});
+document.getElementById(`buttonRestartLost`).addEventListener(`click`, () => {
+  closeLostModal();
+  openResetGameModal();
+});
 
 //Reset easy game
 document.querySelector(`.easy`).addEventListener(`click`, () => {
