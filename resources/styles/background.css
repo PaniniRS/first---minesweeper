@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Pacifico&family=Red+Hat+Display:wght@500;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  min-height: fit-content;
+  min-width: fit-content;
+}
+
+body {
+  background: linear-gradient(241.13deg, #33e6c5 0%, #7795ff 100%);
+  /* mix-blend-mode: screen; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* RESOURCES USED:  
+  ICONS: https://icons8.com/
+  FONTS: https://fonts.google.com/specimen/Inter */

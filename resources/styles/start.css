@@ -1,0 +1,123 @@
+.container {
+  background: rgba(255, 255, 255, 0.75);
+  mix-blend-mode: normal;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-height: fit-content;
+  max-width: fit-content;
+  min-width: fit-content;
+  min-width: fit-content;
+
+  padding: 6px 8px 12px 8px;
+}
+
+.containerTop {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.containerBottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+
+  font-size: 6vh;
+
+  border: none;
+  padding: 0px 12px;
+}
+
+.iconMine {
+  margin: 4px;
+  background: #fafdfe;
+  border-radius: 50%;
+
+  width: 5vw;
+  height: 5vw;
+
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+}
+
+.button {
+  font-size: 6vh;
+  width: fit-content;
+  height: fit-content;
+  background: #fafdfe;
+
+  margin: 4px 4px 4px 4px;
+
+  border-radius: 8px;
+  border: none;
+  padding: 0px 12px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.buttonStart,
+.buttonInstructions {
+  background: linear-gradient(256.62deg, #5bc4e1 -3.2%, #37e2c9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.button:hover {
+  background-color: white;
+  transform: translateY(-4px);
+}
+
+.button:active {
+  background-color: white;
+  transform: translateY(2px);
+}
+
+img {
+  width: 6.4rem;
+  height: 6.4rem;
+  padding: 8px;
+}
+
+h1 {
+  color: white;
+  font-size: 10vh;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+
+  background: linear-gradient(267.59deg, #5bc4e1 0%, #37e2c9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-blend-mode: overlay;
+}
+.iconMine {
+  animation-name: mineSpin;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+}
+
+@keyframes mineSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* RESOURCES USED:  
+  ICONS: https://icons8.com/
+  FONTS: https://fonts.google.com/specimen/Inter */

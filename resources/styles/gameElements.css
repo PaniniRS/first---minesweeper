@@ -1,0 +1,64 @@
+#mineField .tile {
+  user-select: none;
+  width: 24px;
+  height: 24px;
+
+  background: #fafdfe;
+  border: 1px solid rgba(207, 207, 207, 0.5);
+  border-radius: 1px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bomb {
+  background: url(../images/bombNoBg/icons8-explosive-48.png) !important;
+  background-size: contain !important;
+  border-radius: 1px;
+
+  color: #00000000;
+}
+
+.empty {
+  color: #fafdfe !important;
+}
+
+.mine-1 {
+  color: #329dff;
+}
+.mine-2 {
+  color: #264bcd;
+}
+.mine-3 {
+  color: #351c9b;
+}
+.mine-4 {
+  color: #7926cd;
+}
+.mine-5 {
+  color: #ae16b1;
+}
+.mine-6 {
+  color: #b0059f;
+}
+.mine-7 {
+  color: #8d0436;
+}
+.mine-8 {
+  color: #780505;
+}
+
+.closed {
+  background: #666666 !important;
+  color: #666666 !important;
+}
+
+.flag {
+  background: url(../images/flagNoBg/icons8-flag-filled-40.png) !important;
+  background-size: contain !important;
+  background-color: #666666 !important;
+  color: #00000000 !important;
+
+  border-radius: 1px;
+}

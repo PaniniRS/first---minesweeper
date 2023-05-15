@@ -1,0 +1,94 @@
+.container {
+  background: rgba(255, 255, 255, 0.75);
+  mix-blend-mode: normal;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-height: fit-content;
+  max-width: 80vw;
+  min-width: 70vw;
+
+  padding: 6px 8px 12px 8px;
+}
+
+.containerTop {
+  background-color: #fafdfe70;
+  border-radius: 8px;
+
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  color: #818181;
+
+  font-weight: 600;
+
+  font-size: 6vh;
+
+  width: fit-content;
+  height: fit-content;
+  background: #fafdfe;
+
+  padding: 0px 12px;
+  margin: 4px 4px 4px 4px;
+
+  border-radius: 8px;
+  border: none;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+button:hover {
+  background-color: white;
+  transform: translateY(-4px);
+}
+
+button:active {
+  background-color: white;
+  transform: translateY(2px);
+}
+
+h2,
+h3 {
+  background: linear-gradient(267.59deg, #5bc4e1 0%, #37e2c9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-blend-mode: overlay;
+}
+
+h2 {
+  color: white;
+  font-size: 8vh;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 600;
+
+  margin: 5px;
+  /* text-align: center; */
+  font-size: 4vh;
+}
+
+p {
+  font-size: 2.5vh;
+  margin: 0 0 0 50px;
+  color: #818181;
+
+  font-weight: 300;
+}
+
+/* RESOURCES USED:  
+  ICONS: https://icons8.com/
+  FONTS: https://fonts.google.com/specimen/Inter */

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="resources/styles/background.css" />
+    <link rel="stylesheet" href="resources/styles/game.css" />
+    <link rel="stylesheet" href="resources/styles/gameElements.css" />
+    <link rel="stylesheet" href="resources/styles/modalResetGame.css" />
+
+    <link
+      rel="shortcut icon"
+      href="resources/images/icons8-naval-mine-16.png"
+      type="image/x-icon"
+    />
+    <!-- <script src="script.js">
+    </script>
+    -->
+    <title>Minesweeper</title>
+  </head>
+  <body>
+    <div class="bgBlur hidden"></div>
+    <div class="modalResetGame hidden">
+      <div class="modalHeader">
+        <h2 id="modalRestartLabel">Restart</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div class="modalBody">
+        <div class="modalDifficulty">
+          <div class="buttonModal easy">Easy</div>
+          <div class="buttonModal medium">Medium</div>
+          <div class="buttonModal hard">Hard</div>
+        </div>
+        <div class="modalCustom">
+          <div class="modalCustomHeader">
+            <h2 id="modalCustomLabel">Custom:</h2>
+            <div id="buttonNewGame">-></div>
+          </div>
+          <div class="modalCustomInputs">
+            <div class="modalCustomSize">
+              <label id="modalSizeLabel" for="size">Size:</label>
+              <input
+                inputmode="numeric"
+                type="number"
+                name="size"
+                id="sizeInput"
+                min="5"
+                max="30"
+              />
+            </div>
+            <div class="modalCustomBombs">
+              <label id="modalBombLabel" for="bombs">Bombs:</label>
+              <input
+                inputmode="numeric"
+                type="number"
+                name="bombs"
+                id="bombInput"
+                min="2"
+                max="900"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="containerMenu">
+        <div class="display timer">
+          <img
+            class="image timer"
+            src="resources/images/timerNoBg/icons8-time-80.png"
+            alt=""
+          />
+          <div class="containerCount">
+            <div id="count-timer">00</div>
+          </div>
+        </div>
+        <div class="display text">
+          <h4>Minesweeper</h4>
+          <div class="containerButtons">
+            <a href="start.html"
+              ><button type="button" name="home" class="home"></button
+            ></a>
+            <div class="retry"></div>
+          </div>
+        </div>
+        <div class="display mine">
+          <div class="containerCount">
+            <div id="count-mine">02</div>
+          </div>
+          <img
+            class="image mine"
+            src="resources/images/icons8-naval-mine-80.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="containerGame">
+        <div id="mineField"></div>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
+<!-- RESOURCES USED:
+  ICONS: https://icons8.com/
+ -->

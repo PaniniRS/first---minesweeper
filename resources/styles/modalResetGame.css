@@ -1,0 +1,176 @@
+* {
+  font-family: "Inter";
+}
+
+.bgBlur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.modalBody {
+  width: 100%;
+  height: 100%;
+}
+
+.close,
+#modalRestartLabel,
+#modalCustomLabel,
+#buttonNewGame {
+  user-select: none;
+  color: #000000;
+  font-weight: 700;
+  font-size: 5vh;
+}
+
+.close {
+  height: fit-content;
+}
+
+.modalResetGame {
+  z-index: 1;
+  mix-blend-mode: normal;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.modalDifficulty,
+.modalCustomInputs {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+
+.modalHeader,
+.modalCustomHeader {
+  color: #000000;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 10px 10px 0 0;
+  padding-left: 4%;
+  padding-right: 4%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 92%;
+}
+
+.modalCustomHeader {
+  border-radius: 0 0 0 0;
+}
+
+.buttonModal,
+#modalSizeLabel,
+#modalBombLabel,
+#sizeInput,
+#bombInput,
+#buttonNewGame {
+  user-select: none;
+  font-size: 3.6vh;
+  font-weight: 500;
+  width: 24%;
+  height: 100%;
+  background-color: #fafdfe;
+
+  margin: 4px 4px 4px 4px;
+
+  border-radius: 8px;
+  border: none;
+  padding: 0px 12px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#sizeInput,
+#bombInput {
+  font-size: 3.6vh;
+  width: 5vw;
+  font-weight: 400;
+  padding: 0px 4px;
+}
+
+#buttonNewGame {
+  width: 4vh;
+  color: #fafdfe;
+  background-color: #000000;
+}
+
+.easy,
+.medium,
+.hard {
+  text-align: center;
+}
+
+.easy {
+  color: rgb(52, 177, 214);
+}
+
+.medium {
+  width: fit-content;
+  color: rgb(5, 105, 136);
+}
+
+.hard {
+  color: rgb(35, 2, 121);
+}
+
+/* ANIMATIONS */
+
+#buttonNewGame:hover {
+  transform: translateY(-4px);
+}
+
+#buttonNewGame:active {
+  transform: translateY(2px);
+}
+
+.buttonModal:hover {
+  background-color: white;
+  transform: translateY(-4px);
+}
+
+.buttonModal:active {
+  background-color: white;
+  transform: translateY(2px);
+}
+
+.close:hover {
+  animation-name: closeButtonAnimation;
+  animation-duration: 0.4s;
+  animation-iteration-count: 2;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+
+@keyframes closeButtonAnimation {
+  0% {
+    transform: scale(1.2);
+    color: rgb(0, 157, 255);
+  }
+  100% {
+    transform: scale(1.5);
+    color: rgb(0, 157, 255);
+  }
+}
