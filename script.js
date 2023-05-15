@@ -3,17 +3,9 @@
 /*
 #TODO: 
 
-  #ONLOAD:
-  HIDE THE GAME
-    1. Create a modal that asks for the difficulty
-    2. After that start and show the game
-
-  #GAMEOVER:
-    1. show a different modal for winning and losing abd add a button to restart the game(opens the resetgamemodal)
 
     #EXTRA:
-    6.Create a difficulty selector
-      6.1. Maybe add custom user defined parameters for bombs and field size
+    1.Make mobile friendly
     7.Create custom themes
     8.Create a highscore system
     
@@ -309,9 +301,6 @@ const closeLostModal = function () {
   appendLostModal.classList.add("hidden");
   appendBgBlur.classList.add("hidden");
 };
-
-//#TODO: Stop timer once the game is over
-//    Record the time it took to complete the game
 
 ///////////////////////////////////////
 //Run on load
