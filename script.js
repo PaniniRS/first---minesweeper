@@ -3,6 +3,8 @@
 /*
 #TODO: 
 
+  #BUGS:
+   2.Won and Lost modals are way to big on full screen
 
     #EXTRA:
     1.Make mobile friendly
@@ -197,17 +199,39 @@ const mineClick = function (e) {
 
   // Cant click a tile that is flagged
   if (!tile.classList.contains("flag")) {
-    if (tile.classList.contains("bomb")) gameOver();
-
     if (tile.classList.contains("empty")) {
       openAdjacentEmptyTiles(tile);
     } else {
       tile.classList.remove("closed");
     }
+
+    if (allNonBombTilesOpened()) gameWon();
+    else if (tile.classList.contains("bomb")) gameOver();
   }
 };
 
-// Set the number of the tile
+const allNonBombTilesOpened = function () {
+  for (let x = 0; x < mineFieldSizeX; x++) {
+    for (let y = 0; y < mineFieldSizeY; y++) {
+      if (
+        (mineFieldMatrix[x][y].classList.contains("tile") ||
+          mineFieldMatrix[x][y].classList.contains(`mine-1`) ||
+          mineFieldMatrix[x][y].classList.contains(`mine-2`) ||
+          mineFieldMatrix[x][y].classList.contains(`mine-3`) ||
+          mineFieldMatrix[x][y].classList.contains(`mine-4`) ||
+          mineFieldMatrix[x][y].classList.contains(`mine-5`) ||
+          mineFieldMatrix[x][y].classList.contains(`mine-6`) ||
+          mineFieldMatrix[x][y].classList.contains(`mine-7`) ||
+          mineFieldMatrix[x][y].classList.contains(`mine-8`)) &&
+        !mineFieldMatrix[x][y].classList.contains("bomb") &&
+        mineFieldMatrix[x][y].classList.contains("closed")
+      )
+        return false;
+    }
+  }
+  return true;
+};
+
 const setTileNumber = function (tile, xTile, yTile) {
   let adjacentMines = 0;
   // Check all tiles around the tile
@@ -338,7 +362,7 @@ document.getElementById(`buttonRestartLost`).addEventListener(`click`, () => {
 //Reset easy game
 document.querySelector(`.easy`).addEventListener(`click`, () => {
   closeResetModal();
-  gameInit(2, 5);
+  gameInit(5, 8);
 
   appendGameContainer.classList.remove("hidden");
 });
@@ -354,7 +378,7 @@ document.querySelector(`.medium`).addEventListener(`click`, () => {
 //Reset hard game
 document.querySelector(`.hard`).addEventListener(`click`, () => {
   closeResetModal();
-  gameInit(20, 15);
+  gameInit(20, 20);
 
   appendGameContainer.classList.remove("hidden");
 });
