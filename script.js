@@ -4,7 +4,6 @@
 #TODO: 
 
   #BUGS:
-   1.Game not ending when all tiles are discovered
    2.Won and Lost modals are way to big on full screen
 
     #EXTRA:
